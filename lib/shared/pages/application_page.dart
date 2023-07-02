@@ -22,6 +22,7 @@ class _ApplicationPageState extends State<ApplicationPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(
           "WhatsApp",
           style: TextStyle(
@@ -62,11 +63,11 @@ class _ApplicationPageState extends State<ApplicationPage>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          const ChatsScreen(),
-          const ChatsScreen(),
-          const ChatsScreen(),
-          const ChatsScreen(),
+        children: const [
+          ChatsScreen(),
+          ChatsScreen(),
+          ChatsScreen(),
+          ChatsScreen(),
         ],
       ),
     );
