@@ -14,6 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
   bool _visible = true;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -26,88 +27,93 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).padding.top + 60,
-            ),
-            const Center(
-              child: FlutterLogo(
-                size: 150,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).padding.top + 60,
               ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: AppInput(
-                controller: _emailController,
-                lable: "Connexion",
-                prefixIcon: const Icon(Icons.person),
-                keyboardType: TextInputType.emailAddress,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: AppInput(
-                controller: _passwordController,
-                lable: "Mot de passe",
-                prefixIcon: const Icon(Icons.password),
-                keyboardType: TextInputType.visiblePassword,
-                obscureText: _visible,
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _visible ? Icons.visibility : Icons.visibility_off,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _visible = !_visible;
-                    });
-                  },
+              const Center(
+                child: FlutterLogo(
+                  size: 150,
                 ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text("Mot de passe oublie ?"),
-            ),
-            const SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const ApplicationPage();
-                      },
+              const SizedBox(
+                height: 40,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AppInput(
+                  controller: _emailController,
+                  lable: "Connexion",
+                  prefixIcon: const Icon(Icons.person),
+                  keyboardType: TextInputType.emailAddress,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AppInput(
+                  controller: _passwordController,
+                  lable: "Mot de passe",
+                  prefixIcon: const Icon(Icons.password),
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: _visible,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _visible ? Icons.visibility : Icons.visibility_off,
                     ),
-                  );
-                },
-                child: Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.purple,
-                    borderRadius: BorderRadius.circular(8),
+                    onPressed: () {
+                      setState(() {
+                        _visible = !_visible;
+                      });
+                    },
                   ),
-                  child: const Center(
-                    child: Text(
-                      "S'identifier",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17,
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text("Mot de passe oublie ?"),
+              ),
+              const SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: InkWell(
+                  onTap: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const ApplicationPage();
+                          },
+                        ),
+                      );
+                    }
+                  },
+                  child: Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      color: Colors.purple,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "S'identifier",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
