@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:formation_juin_23/chats/data/conversation.dart';
+import 'package:formation_juin_23/whatsapp/chats/data/conversation.dart';
 
 class ConversionWidget extends StatelessWidget {
   final Conversation conversation;

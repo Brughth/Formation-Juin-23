@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:formation_juin_23/chats/data/conversation.dart';
-import 'package:formation_juin_23/chats/presentation/conversion_widget.dart';
+import 'package:formation_juin_23/whatsapp/chats/data/conversation.dart';
+import 'package:formation_juin_23/whatsapp/chats/presentation/conversion_widget.dart';
 
 class ChatsScreen extends StatefulWidget {
   const ChatsScreen({super.key});

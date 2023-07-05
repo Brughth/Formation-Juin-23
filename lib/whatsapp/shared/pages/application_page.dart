@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:formation_juin_23/chats/presentation/chats_screen.dart';
+import 'package:formation_juin_23/whatsapp/chats/presentation/chats_screen.dart';
 
 class ApplicationPage extends StatefulWidget {
   const ApplicationPage({super.key});

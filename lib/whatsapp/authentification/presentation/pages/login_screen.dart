@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:formation_juin_23/shared/pages/application_page.dart';
+import 'package:formation_juin_23/whatsapp/shared/pages/application_page.dart';
 
 import '../widgets/app_input.dart';
 
