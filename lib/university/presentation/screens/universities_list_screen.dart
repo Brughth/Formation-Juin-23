@@ -13,7 +13,15 @@ class UniversitiesListScreen extends StatefulWidget {
 
 class _UniversitiesListScreenState extends State<UniversitiesListScreen> {
   @override
+  void initState() {
+    // instantier le bloc UniversityBloc
+    // lancer l'evenement FetchCountryUniversities
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // gerer l'etat de lapplication en fonction de l/etat du bloc
     return Scaffold();
   }
 }
