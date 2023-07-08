@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class UniversitiesListScreen extends StatefulWidget {
-  const UniversitiesListScreen({super.key});
+  final String country;
+  const UniversitiesListScreen({
+    super.key,
+    required this.country,
+  });
 
   @override
   State<UniversitiesListScreen> createState() => _UniversitiesListScreenState();

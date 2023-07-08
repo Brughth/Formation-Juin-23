@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:formation_juin_23/university/data/repositories/university_repository.dart';
 import 'package:meta/meta.dart';
-
-import '../../data/models/university_model.dart';
+import '../data/models/university_model.dart';
 
 part 'university_event.dart';
 part 'university_state.dart';
