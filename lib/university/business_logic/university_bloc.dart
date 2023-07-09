@@ -1,6 +1,7 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formation_juin_23/university/data/repositories/university_repository.dart';
-import 'package:meta/meta.dart';
+
 import '../data/models/university_model.dart';
 
 part 'university_event.dart';

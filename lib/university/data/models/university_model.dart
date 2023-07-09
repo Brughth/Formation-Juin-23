@@ -17,8 +17,8 @@ class UniversityModel {
 
   factory UniversityModel.fromJson(Map<String, dynamic> json) {
     return UniversityModel(
-      webPages: json['web_pages'],
-      domains: json['domains'],
+      webPages: List<String>.from(json['web_pages']),
+      domains: List<String>.from(json['domains']),
       country: json['country'],
       name: json['name'],
       stateProvince: json['state-province'],

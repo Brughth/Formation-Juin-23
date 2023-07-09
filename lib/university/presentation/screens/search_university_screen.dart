@@ -20,20 +20,34 @@ class _SearchUniversityScreenState extends State<SearchUniversityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        TextFormField(
-          controller: _searchController,
-          onFieldSubmitted: (value) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => UniversitiesListScreen(
-                  country: value,
-                ),
+      appBar: AppBar(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              controller: _searchController,
+              style: const TextStyle(
+                color: Colors.white,
               ),
-            );
-          },
-        )
-      ]),
+              decoration: const InputDecoration(
+                filled: true,
+                fillColor: Colors.red,
+                border: OutlineInputBorder(),
+              ),
+              onFieldSubmitted: (value) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => UniversitiesListScreen(
+                      country: value,
+                    ),
+                  ),
+                );
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }

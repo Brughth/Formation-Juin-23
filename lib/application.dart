@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:formation_juin_23/posts_api/posts/presentation/pages/posts_screen.dart';
+import 'package:formation_juin_23/university/presentation/screens/search_university_screen.dart';
 import 'package:formation_juin_23/whatsapp/authentification/presentation/pages/login_screen.dart';
 
 class Application extends StatelessWidget {
@@ -32,6 +33,16 @@ class Application extends StatelessWidget {
                   builder: (context) => const PostsScreen(
                     title: "POSTS API",
                   ),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text("University"),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SearchUniversityScreen(),
                 ),
               );
             },
