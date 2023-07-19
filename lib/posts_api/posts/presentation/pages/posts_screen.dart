@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:formation_juin_23/counter_with_bloc/logic/cubit/counter_cubit.dart';
 import 'package:formation_juin_23/posts_api/posts/data/repositories/post_repository.dart';
+import 'package:formation_juin_23/service_locator.dart';
 
 import '../../data/models/post_model.dart';
 
@@ -28,6 +30,15 @@ class _PostsScreenState extends State<PostsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          Text(
+            getIt.get<CounterCubit>().state.counter.toString(),
+            style: const TextStyle(
+              fontSize: 50,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+        ],
       ),
       body: FutureBuilder<List<PostModel>>(
         future: _postRepository.getAllPosts(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formation_juin_23/counter_with_bloc/presentation/counter_screen.dart';
 import 'package:formation_juin_23/posts_api/posts/presentation/pages/posts_screen.dart';
 import 'package:formation_juin_23/whatsapp/authentification/presentation/pages/login_screen.dart';
 
@@ -32,6 +33,16 @@ class Application extends StatelessWidget {
                   builder: (context) => const PostsScreen(
                     title: "POSTS API",
                   ),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text("Counter App with Bloc"),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const CounterScreen(),
                 ),
               );
             },

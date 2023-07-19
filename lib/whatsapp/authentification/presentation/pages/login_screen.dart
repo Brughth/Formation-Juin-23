@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formation_juin_23/counter_with_bloc/logic/cubit/counter_cubit.dart';
 import 'package:formation_juin_23/whatsapp/shared/pages/application_page.dart';
 
 import '../widgets/app_input.dart';
@@ -36,9 +38,22 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: MediaQuery.of(context).padding.top + 60,
               ),
-              const Center(
-                child: FlutterLogo(
-                  size: 150,
+              Center(
+                child: InkWell(
+                  onTap: () {
+                    context.read<CounterCubit>().decrement();
+                  },
+                  child: BlocBuilder<CounterCubit, CounterState>(
+                    builder: (context, state) {
+                      return Text(
+                        state.counter.toString(),
+                        style: const TextStyle(
+                          fontSize: 100,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
               const SizedBox(
